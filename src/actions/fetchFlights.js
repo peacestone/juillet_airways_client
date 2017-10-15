@@ -4,7 +4,7 @@ const fetchFlights = (flightInput) => {
   return (
     (dispatch) => {
      dispatch({type: 'LOADING_FLIGHTS'})
-       fetch('https://juilet-air.herokuapp.com/api/flights/find', {
+       fetch('https://juiletapi.herokuapp.com/api/flights/find', {
       headers: {'Content-Type': 'application/json'},
        method: 'POST',
        body: JSON.stringify({flights: flightInput})
