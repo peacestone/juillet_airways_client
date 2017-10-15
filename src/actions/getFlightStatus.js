@@ -2,7 +2,7 @@ export default (flightInfo) => {
   return (dispatch) => {
     dispatch({type: 'LOADING_FLIGHTS'})
 
-    fetch('http://localhost:3001/api/flights/status', {
+    fetch('https://juilet-air.herokuapp.com/api/flights/status', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({flights: flightInfo})
