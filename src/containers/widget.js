@@ -41,7 +41,7 @@ import FlightStatusTable from '../components/flightStatusTable'
 
     }
     return (
-      <div  id='widget' style={{backgroundImage: "url(" + img  + ")", minHeight: '100%', backgroundSize: 'cover', position: 'relative'}} >
+      <div  id='widget'  >
 
           <Grid
            textAlign='center'
