@@ -1,5 +1,10 @@
 import React from 'react'
 import {Container} from 'semantic-ui-react'
+import getAirports from '../actions/getAirports'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+
+
 
 
 class WhereWeFly extends React.Component {
@@ -10,7 +15,7 @@ class WhereWeFly extends React.Component {
   }
 
   componentDidMount = () => {
-    
+    this.props.getAirports()
   }
 
   render(){
@@ -29,4 +34,13 @@ class WhereWeFly extends React.Component {
 
 }
 
-export default WhereWeFly
+const mapDispatchToProps = (dispatch) => {
+  console.log(dispatch)
+  return bindActionCreators({getAirports}, dispatch)
+}
+
+
+
+
+
+export default connect(null, mapDispatchToProps)(WhereWeFly)
