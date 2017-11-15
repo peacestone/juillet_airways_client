@@ -13,7 +13,9 @@ class navBar extends Component {
 
   handleWhereFlyClick = () => this.setState({toggleWhereFly: !this.state.toggleWhereFly})
 
-
+  handleBlur = () => { console.log('blur')
+    return this.setState({toggleWhereFly: false})
+  }
   render() {
     console.log(this.state)
     return(

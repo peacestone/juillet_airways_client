@@ -1,4 +1,4 @@
-export default (state = [], action) => {
+export default (state = {airports: []}, action) => {
 
   switch (action.type) {
     case 'RECEIVE_AIRPORTS_INDEX':
