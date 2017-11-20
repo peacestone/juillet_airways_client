@@ -1,8 +1,10 @@
-export default (state = {airports: []}, action) => {
+export default (state = {airports: [], destinations: {origin_airport_id: NaN, airports: []}}, action) => {
 
   switch (action.type) {
     case 'RECEIVE_AIRPORTS_INDEX':
-      return action.payload
+      return Object.assign({}, state, action.payload)
+    case 'RECEIVE_AIRPORT_DESTINATION':
+      return Object.assign({}, state, {destinations: {origin_airport_id: action.origin_id, airports: action.airports}})
     default:
       return state
   }

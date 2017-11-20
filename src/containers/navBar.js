@@ -13,14 +13,12 @@ class navBar extends Component {
 
   handleWhereFlyClick = () => this.setState({toggleWhereFly: !this.state.toggleWhereFly})
 
-  handleBlur = () => { console.log('blur')
-    return this.setState({toggleWhereFly: false})
-  }
+
   render() {
     console.log(this.state)
     return(
       <div id='navBar' >
-        <Menu borderless  size='massive' >
+        <Menu borderless  size='massive' style={{marginBottom: '14'}} >
             <Menu.Item position='left' style={{letterSpacing: '0.3em'}} ><Header>Juliet Airways</Header></Menu.Item>
 
             <Menu.Item position='right' name='whereWeFly' onClick={this.handleWhereFlyClick} />
