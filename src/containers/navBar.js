@@ -15,10 +15,9 @@ class navBar extends Component {
 
 
   render() {
-    console.log(this.state)
     return(
       <div id='navBar' >
-        <Menu borderless  size='massive' style={{marginBottom: '14'}} >
+        <Menu borderless  size='massive' style={{marginBottom: '14px'}} >
             <Menu.Item position='left' style={{letterSpacing: '0.3em'}} ><Header>Juliet Airways</Header></Menu.Item>
 
             <Menu.Item position='right' name='whereWeFly' onClick={this.handleWhereFlyClick} />

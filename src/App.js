@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Widget from './containers/widget'
 import flightsList from './containers/flightsList'
-import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
-import { Segment, Header, Container, Menu } from 'semantic-ui-react'
+import { BrowserRouter as Router, Route} from 'react-router-dom'
 import TravelersDetailsInput from './containers/travelersDetailsInput'
 import PaymentsInput from './containers/paymentsInput'
 import ReservationSuccess from './components/reservationSuccess'

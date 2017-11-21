@@ -3,7 +3,6 @@ import { bindActionCreators } from 'redux'
 import disableStatusTable from '../actions/disableStatusTable'
 import {connect} from 'react-redux'
 import {  Menu, Grid, Segment, Container } from 'semantic-ui-react'
-import img from "../beach.jpg"
 import BookAFlight from './bookAFlight'
 import MyTrips from './myTrips'
 import FlightStatus from './flightStatus'

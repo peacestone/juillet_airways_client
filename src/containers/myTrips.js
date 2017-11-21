@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Form, Button, Message} from 'semantic-ui-react'
+import {Form, Button} from 'semantic-ui-react'
 import {withRouter} from 'react-router'
 import findReservation from '../actions/findReservation'
 import clearReservation from '../actions/clearReservation'
