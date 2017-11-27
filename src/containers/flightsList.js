@@ -72,7 +72,7 @@ render() {
           <Grid.Row >
 
 
-          <Header color='violet'  >  {this.props.flights.request.departure_city} > {this.props.flights.request.arival_city}    <br /> {this.props.flights.request.departure_date}</Header >
+          <Header color='violet'  >  {this.props.flights.request.departure_airport.iata_code} > {this.props.flights.request.arival_airport.iata_code}    <br /> {this.props.flights.request.departure_date}</Header >
 
             <span style={{marginRight: '70%',  color: '#6f51b0'}}><strong>Sorted By</strong> {' '}
 

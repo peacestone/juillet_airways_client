@@ -20,7 +20,7 @@ const flight = props => {
         </div>
       </Grid.Column>
       <Grid.Column onClick={handlePriceClick} className='price' width='2'>
-      Price: ${props.flight.price}
+      Price: ${props.flight.route.base_price}
       <Container className='hiddenText'text >Select</Container>
     </Grid.Column>
     </Grid.Row>

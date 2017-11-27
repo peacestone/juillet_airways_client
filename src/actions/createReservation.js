@@ -4,7 +4,7 @@ const createReservation = (travelerAndFlightInfo) => (
    (dispatch) => {
     dispatch({type: 'FETCHING_RESERVATION'})
 
-    fetch('https://juiletapi.herokuapp.com/api/reservations', {
+    fetch('http://localhost:3001/api/reservations', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({reservation: travelerAndFlightInfo})
