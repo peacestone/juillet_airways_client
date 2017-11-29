@@ -13,8 +13,8 @@ class BookAFlight extends Component {
   constructor(props) {
     super(props)
     this.state = {
-        departure_city: '',
-        arival_city: '',
+        departure_airport: '',
+        arival_airport: '',
         departure_date: null,
 
         formErrors: {
@@ -35,15 +35,15 @@ class BookAFlight extends Component {
   validateForm = (formInput) => {
     let errors = {}
     let isValid = true
-    if (formInput.arival_city === '') {
+    if (formInput.arival_airport === '') {
       isValid = false
       this.setState({arivalCityIsInvalid: true})
-     errors.arival_city = 'Please enter a valid arival city to continue'
+     errors.arival_airport = 'Please enter a valid arival city to continue'
     }
 
-    if (formInput.departure_city === '') {
+    if (formInput.departure_airport === '') {
       isValid = false
-      errors.departure_city = 'Please enter a departure city to continue'
+      errors.departure_airport = 'Please enter a departure city to continue'
       this.setState({departureCityIsInvalid: true})
   }
 
@@ -62,8 +62,8 @@ class BookAFlight extends Component {
   handleClick = function(e, data) {
     const isValid = this.validateForm(this.state)
     if (isValid.isValid){
-      const {arival_city, departure_city, departure_date} = this.state
-      this.props.fetchFlights({arival_city, departure_city, departure_date})
+      const {arival_airport, departure_airport, departure_date} = this.state
+      this.props.fetchFlights({arival_airport, departure_airport, departure_date})
       this.props.history.push('/flights')
     }
     else {
@@ -81,9 +81,9 @@ class BookAFlight extends Component {
       <Form error={!this.state.isValidForm} autoComplete="on" size='large' >
       {!this.state.isValidForm && <Message error header={`Please Fix the ${Object.values(this.state.formErrors).length} fields indicated`}  list={Object.values(this.state.formErrors) } />}
 
-      <Form.Dropdown  placeholder='From' onChange={this.handleChange} name='departure_city' error={!!this.state.departureCityIsInvalid} noResultsMessage="Sorry, we don't fly there yet" minCharacters={3} search selection options={cityOptions} />
+      <Form.Dropdown  placeholder='From' onChange={this.handleChange} name='departure_airport' error={!!this.state.departureCityIsInvalid} noResultsMessage="Sorry, we don't fly there yet" minCharacters={3} search selection options={cityOptions} />
 
-      <Form.Dropdown onChange={this.handleChange} placeholder='To' name='arival_city' error={!!this.state.arivalCityIsInvalid} noResultsMessage="Sorry, we don't fly there yet" minCharacters={3} search selection options={cityOptions} />
+      <Form.Dropdown onChange={this.handleChange} placeholder='To' name='arival_airport' error={!!this.state.arivalCityIsInvalid} noResultsMessage="Sorry, we don't fly there yet" minCharacters={3} search selection options={cityOptions} />
 
 
       <Form.Input  fluid>

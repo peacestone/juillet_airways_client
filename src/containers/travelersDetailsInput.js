@@ -85,7 +85,7 @@ class TripSummary extends React.Component {
         <span> {this.props.request.departure_date}, {this.props.selectedFlight.departure_time} </span> <br /> <br />
         Arrives: <strong> {this.props.request.arival_city}</strong> <br />
         <span>{this.props.request.departure_date}, {this.props.selectedFlight.arival_time}</span><br /> <br />
-        <span>Total:</span><strong>${this.props.selectedFlight.price}</strong>
+        <span>Total:</span><strong>${this.props.selectedFlight.route.base_price}</strong>
       </Segment>
 
       <Header  textAlign='center'  as='h1'>Traveler Information</Header>

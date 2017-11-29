@@ -38,7 +38,7 @@ class flightsList extends React.Component {
   }
   handleFilterChange = (event, data) => {
     this.setState({filterValue: data.value})
-    const requestWithSort = Object.assign({}, this.props.flights.request, {sort_by: data.value} )
+    const requestWithSort = Object.assign({}, {departure_airport: this.props.flights.request.departure_airport.iata_code, arival_airport: this.props.flights.request.arival_airport.iata_code, departure_date: this.props.flights.request.departure_date  }, {sort_by: data.value} )
 
     this.props.fetchFlights(requestWithSort)
   }

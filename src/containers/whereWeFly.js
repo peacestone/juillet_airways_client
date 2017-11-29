@@ -23,7 +23,7 @@ class WhereWeFly extends React.Component {
 
     return(
 
-      <div id='whereWeFly' style={{display: 'inlineBlock', backgroundColor: 'pink', width: '18%', right: '8%', position: 'absolute', top: '4%'}} >
+      <div id='whereWeFly' style={{display: 'inlineBlock', backgroundColor: 'pink', zIndex: '1', width: '18%', right: '8%', position: 'absolute', top: '4%'}} >
       <ul>
         {airportCityList}
       </ul>
