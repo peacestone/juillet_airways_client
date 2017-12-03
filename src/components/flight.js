@@ -15,7 +15,7 @@ const flight = props => {
   return (
       <Grid.Row  verticalAlign='middle' >
       <Grid.Column   width='14'>
-        <span style={{fontSize: '13px'}}>Flight Number: {props.flight.flight_number}</span>
+        <span style={{fontSize: '13px'}}>Flight Number: {props.flight.route.id}</span>
         <div className="timeInfo" style={{fontSize: '22px'}} >  {props.flight.departure_time}  >  {props.flight.arival_time} <br /> Total Travel Time: {props.flight.total_fly_time}
         </div>
       </Grid.Column>

@@ -5,7 +5,7 @@ import Loader from './loader'
 
 
 const Success = ({reservation, isFetching, error}) => {
-
+  console.log(reservation)
   if (error) {
     return <Message error size='huge' header={error} />
   }
@@ -17,12 +17,12 @@ return (
     <Container style={{width: '59%' , float: 'left'}}>
       <Segment >
         <Header>Flight Resevation<div style={{float: 'right', border: 'dashed 2px grey', paddingRight: '4%', paddingLeft: '4%', textAlign: 'center'}}>Flight Confirmation #<br /> {reservation.confirmation_number}</div> </Header>
-          <strong>Juliet Airlines</strong> JL {reservation.flight.flight_number}  <br /> <br />
-          <span><strong>Departs:</strong> {reservation.flight.departure_city}  <br />
+          <strong>Flight Number</strong> JL{reservation.route.id}  <br /> <br />
+          <span><strong>Departs:</strong> {reservation.route.departure_airport.city}  <br />
           {reservation.flight.departure_date}, {reservation.flight.departure_time} </span> <br /> <br />
-          <span><strong>Arives:</strong> {reservation.flight.arival_city}<br /> {reservation.flight.departure_date}, {reservation.flight.arival_time} </span>
+          <span><strong>Arives:</strong> {reservation.route.arival_airport.city}<br /> {reservation.flight.departure_date}, {reservation.flight.arival_time} </span>
           <Header dividing>Passenger Info</Header>
-          <strong>Name: </strong> <span> {reservation.first_name} {reservation.middle_name} {reservation.last_name} </span> <br />
+          <strong>Name: </strong> <span> {reservation.passenger.first_name} {reservation.passenger.middle_name} {reservation.passenger.last_name} </span> <br />
           <strong>Seat:</strong> <span>16D</span>
       </Segment>
     </Container>
@@ -32,13 +32,14 @@ return (
         <Header dividing size='large'>Payment Summary</Header>
         {reservation.payment_info && (<div><strong style={{marginRight: '4%'}}>Method of Payment:</strong><span> VI {reservation.payment_info.card_number}</span></div>)} <br />
         <strong style={{marginRight: '4%'}}>Total Price:</strong>
-        <span>${reservation.flight.price}</span>
+        <span>${reservation.route.base_price}</span>
       </Segment>
     </Container  >
 
 
   </Container>
 )}
+
 
 const mapStateToProps = state => {
   return {reservation: state.reservations.reservation, isFetching: state.reservations.isFetching, error: state.reservations.error}

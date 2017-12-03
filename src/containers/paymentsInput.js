@@ -81,7 +81,7 @@ class paymentsInput extends React.Component {
         <Divider section  />
 
         <Header  size='large'>Payment Details</Header>
-        <Header >Total: ${this.props.selectedFlight.price}</Header>
+        <Header >Total: ${this.props.selectedFlight.route.base_price}</Header>
 
         <Divider section hidden />
 
