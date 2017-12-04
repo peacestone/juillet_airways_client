@@ -1,4 +1,4 @@
-export default (state = {toggleStatusTable: false, flight: {} }, action) => {
+export default (state = {toggleStatusTable: false, flight: {route: {arival_airport: {} }, departure_airport: {} } }, action) => {
   switch (action.type) {
     case 'DISABLE_STATUS_TABLE':
       return Object.assign({}, state, {toggleStatusTable: false});
