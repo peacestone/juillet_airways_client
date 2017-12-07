@@ -3,11 +3,11 @@ import {Form, Button, Message} from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import fetchFlights from '../actions/fetchFlights'
+import getAirports from '../actions/getAirports'
 import { withRouter } from 'react-router'
 import {  SingleDatePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 import moment from 'moment'
-
 
 class BookAFlight extends Component {
   constructor(props) {
@@ -72,10 +72,15 @@ class BookAFlight extends Component {
 
  }
 
+ componentDidMount = () => this.props.getAirports()
+
+
+
 
 
   render(){
-    const cityOptions = [{key: 'JFK', text: 'New York- Kennedy, NY (JFK)', value: 'JFK'}, {key: 'ATL', text: 'Atlanta, GA (ATL)', value: "ATL"}, {key: 'IAD', text: 'Washington-Dulles, DC (IAD)', value: 'IAD'}, {key: 'ORD', text: 'Chicago-Ohare, IL (ORD)', value: 'ORD'}, {key: 'MIA', text: 'Miami, FL (MIA)', value: 'MIA'}]
+    const cityOptions = this.props.airports.map( airport => ({key: airport.id, text: `${airport.city} (${airport.iata_code})`, value: airport.id}))
+    //const cityOptions = [{key: 'JFK', text: 'New York- Kennedy, NY (JFK)', value: 'JFK'}, {key: 'ATL', text: 'Atlanta, GA (ATL)', value: "ATL"}, {key: 'IAD', text: 'Washington-Dulles, DC (IAD)', value: 'IAD'}, {key: 'ORD', text: 'Chicago-Ohare, IL (ORD)', value: 'ORD'}, {key: 'MIA', text: 'Miami, FL (MIA)', value: 'MIA'}]
 
     return(
       <Form error={!this.state.isValidForm} autoComplete="on" size='large' >
@@ -112,9 +117,13 @@ class BookAFlight extends Component {
 }
 
 const mapDispatchToProps = dispatch => (
-  bindActionCreators({fetchFlights: fetchFlights}, dispatch)
+  bindActionCreators({fetchFlights: fetchFlights, getAirports}, dispatch)
+)
+
+const mapStateToProps = state => (
+  {airports: state.airports.airports}
 )
 
 
 
-export default withRouter(connect(null, mapDispatchToProps)(BookAFlight))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BookAFlight))

@@ -38,7 +38,7 @@ class flightsList extends React.Component {
   }
   handleFilterChange = (event, data) => {
     this.setState({filterValue: data.value})
-    const requestWithSort = Object.assign({}, {departure_airport: this.props.flights.request.departure_airport.iata_code, arival_airport: this.props.flights.request.arival_airport.iata_code, departure_date: this.props.flights.request.departure_date  }, {sort_by: data.value} )
+    const requestWithSort = Object.assign({}, {departure_airport: this.props.flights.request.departure_airport, arival_airport: this.props.flights.request.arival_airport, departure_date: this.props.flights.request.departure_date  }, {sort_by: data.value} )
 
     this.props.fetchFlights(requestWithSort)
   }
@@ -72,7 +72,7 @@ render() {
           <Grid.Row >
 
 
-          <Header color='violet'  >  {this.props.flights.request.departure_airport.iata_code} > {this.props.flights.request.arival_airport.iata_code}    <br /> {this.props.flights.request.departure_date}</Header >
+          <Header color='violet'  >  {this.props.airports[this.props.flights.request.departure_airport].iata_code} > {this.props.airports[this.props.flights.request.arival_airport].iata_code}    <br /> {this.props.flights.request.departure_date}</Header >
 
             <span style={{marginRight: '70%',  color: '#6f51b0'}}><strong>Sorted By</strong> {' '}
 
@@ -92,7 +92,7 @@ render() {
 
 
 const mapStateToProps = (state) => {
-  return {flights: state.flights, selectedFlight: state.selectedFlight, isLoading: state.flights.isLoading}
+  return {flights: state.flights, selectedFlight: state.selectedFlight, isLoading: state.flights.isLoading, airports: state.airports.airports}
 }
 
 const mapDispatchToProps = dispatch => {
