@@ -57,6 +57,11 @@ render() {
 
   const flights = this.props.flights.flights.map((flight, index) => <Flight key={index}   flight={flight} /> )
 
+  const departure_airport = this.props.airports.find(airport => airport.id === this.props.flights.request.departure_airport)
+
+  const arival_airport = this.props.airports.find(airport => airport.id === this.props.flights.request.arival_airport)
+   
+
   return (
     <div id='flights-list'>
     <InlineStyle />
@@ -72,7 +77,7 @@ render() {
           <Grid.Row >
 
 
-          <Header color='violet'  >  {this.props.airports[this.props.flights.request.departure_airport].iata_code} > {this.props.airports[this.props.flights.request.arival_airport].iata_code}    <br /> {this.props.flights.request.departure_date}</Header >
+          <Header color='violet'  >  {departure_airport.iata_code} > {arival_airport.iata_code}    <br /> {this.props.flights.request.departure_date}</Header >
 
             <span style={{marginRight: '70%',  color: '#6f51b0'}}><strong>Sorted By</strong> {' '}
 
