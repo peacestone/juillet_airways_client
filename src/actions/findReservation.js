@@ -2,7 +2,7 @@ export default (reservation_query) => {
   return (dispatch) => {
     dispatch({type: 'FETCHING_RESERVATION'})
 
-    fetch('http://localhost:3001/api/reservations/find', {
+    fetch('https://juiletapi.herokuapp.com/api/reservations/find', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({reservation: reservation_query})
@@ -17,6 +17,3 @@ export default (reservation_query) => {
       dispatch({type: 'RECIEVE_RESERVATION', payload: reservation})})
   }
 }
-
-
-//    fetch('https://juiletapi.herokuapp.com/api/reservations/find', {
