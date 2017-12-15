@@ -9,9 +9,15 @@ class navBar extends Component {
     this.state = {
       toggleWhereFly: false
     }
-  }
+
+   }
+
+   toggleOff = () => this.setState({toggleWhereFly: false})
+
+
 
   handleWhereFlyClick = () => this.setState({toggleWhereFly: !this.state.toggleWhereFly})
+
 
 
   render() {
@@ -19,12 +25,10 @@ class navBar extends Component {
       <div id='navBar' >
         <Menu borderless  size='massive' style={{marginBottom: '14px'}} >
             <Menu.Item position='left' style={{letterSpacing: '0.3em'}} ><Header>Juliet Airways</Header></Menu.Item>
-
-            <Menu.Item position='right' name='whereWeFly' onClick={this.handleWhereFlyClick} />
-
+            <Menu.Item  position='right' name='whereWeFly' onClick={this.handleWhereFlyClick} />
         </Menu>
 
-        {this.state.toggleWhereFly && <WhereWeFly />}
+        {this.state.toggleWhereFly && <WhereWeFly toggleOff={this.toggleOff} />}
       </div>
     )
   }

@@ -9,9 +9,31 @@ import AirportList from '../components/airportsList'
 
 class WhereWeFly extends React.Component {
 
+  constructor(props){
+    super(props)
+    this.setWrapperRef = this.setWrapperRef.bind(this);
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
+  }
+
   componentDidMount = () => {
     this.props.getAirports()
+    document.addEventListener('mousedown', this.handleOutsideClick)
   }
+
+  componentWillUnmount = () => {
+    document.addEventListener('mousedown', this.handleOutsideClick)
+  }
+
+
+  handleOutsideClick = (event) => {
+
+    if(this.wrapperRef && !this.wrapperRef.contains(event.target)){
+      this.props.toggleOff()
+    }
+  }
+
+  setWrapperRef = (node) => this.wrapperRef = node
+
 
    handleClick = (event) => {
     const airportId = event.target.id
@@ -23,7 +45,7 @@ class WhereWeFly extends React.Component {
 
     return(
 
-      <div id='whereWeFly' style={{display: 'inlineBlock', backgroundColor: 'pink', zIndex: '1', width: '18%', right: '8%', position: 'absolute', top: '4%'}} >
+      <div id='whereWeFly' ref={this.setWrapperRef} style={{display: 'inlineBlock', backgroundColor: 'pink', zIndex: '1', width: '18%', right: '8%', position: 'absolute', top: '4%'}} >
       <ul>
         {airportCityList}
       </ul>
