@@ -21,14 +21,15 @@ class navBar extends Component {
 
 
   render() {
+    console.log(this.whereWeFlyNode)
     return(
       <div id='navBar' >
         <Menu borderless  size='massive' style={{marginBottom: '14px'}} >
             <Menu.Item position='left' style={{letterSpacing: '0.3em'}} ><Header>Juliet Airways</Header></Menu.Item>
-            <Menu.Item  position='right' name='whereWeFly' onClick={this.handleWhereFlyClick} />
+            <span ref={node => {this.whereWeFlyNode = node}}><Menu.Item  position='right' name='whereWeFly' onClick={this.handleWhereFlyClick} /></span>
         </Menu>
 
-        {this.state.toggleWhereFly && <WhereWeFly toggleOff={this.toggleOff} />}
+        {this.state.toggleWhereFly && <WhereWeFly toggleOff={this.toggleOff} whereWeFlyNode={this.whereWeFlyNode} />}
       </div>
     )
   }

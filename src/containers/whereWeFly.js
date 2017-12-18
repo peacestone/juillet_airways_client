@@ -26,8 +26,7 @@ class WhereWeFly extends React.Component {
 
 
   handleOutsideClick = (event) => {
-
-    if(this.wrapperRef && !this.wrapperRef.contains(event.target)){
+    if((this.wrapperRef && !this.wrapperRef.contains(event.target) ) && (this.props.whereWeFlyNode && !this.props.whereWeFlyNode.contains(event.target) )  ){
       this.props.toggleOff()
     }
   }
@@ -45,7 +44,7 @@ class WhereWeFly extends React.Component {
 
     return(
 
-      <div id='whereWeFly' ref={this.setWrapperRef} style={{display: 'inlineBlock', backgroundColor: 'pink', zIndex: '1', width: '18%', right: '8%', position: 'absolute', top: '4%'}} >
+      <div id='whereWeFly'  ref={this.setWrapperRef} style={{display: 'inlineBlock', backgroundColor: 'pink', zIndex: '1', width: '18%', right: '8%', position: 'absolute', top: '4%'}} >
       <ul>
         {airportCityList}
       </ul>
