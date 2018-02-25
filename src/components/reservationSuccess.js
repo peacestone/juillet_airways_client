@@ -5,7 +5,6 @@ import Loader from './loader'
 
 
 const Success = ({reservation, isFetching, error}) => {
-  console.log(reservation)
   if (error) {
     return <Message error size='huge' header={error} />
   }
@@ -17,7 +16,7 @@ return (
     <Container style={{width: '59%' , float: 'left'}}>
       <Segment >
         <Header>Flight Resevation<div style={{float: 'right', border: 'dashed 2px grey', paddingRight: '4%', paddingLeft: '4%', textAlign: 'center'}}>Flight Confirmation #<br /> {reservation.confirmation_number}</div> </Header>
-          <strong>Flight Number</strong> JL{reservation.route.id}  <br /> <br />
+          <strong>Flight Number</strong> JL{reservation.flight.id}  <br /> <br />
           <span><strong>Departs:</strong> {reservation.route.departure_airport.city}  <br />
           {reservation.flight.departure_date}, {reservation.flight.departure_time} </span> <br /> <br />
           <span><strong>Arives:</strong> {reservation.route.arival_airport.city}<br /> {reservation.flight.departure_date}, {reservation.flight.arival_time} </span>

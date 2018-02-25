@@ -71,7 +71,7 @@ class paymentsInput extends React.Component {
                 <Table.Cell>{this.props.request.departure_date}</Table.Cell>
                 <Table.Cell>{this.props.selectedFlight.departure_time} to {' '}{this.props.selectedFlight.arival_time}</Table.Cell>
                 <Table.Cell>{this.props.selectedFlight.route.departure_airport.iata_code} - {this.props.selectedFlight.route.arival_airport.iata_code} </Table.Cell>
-                <Table.Cell>{this.props.selectedFlight.route.id}</Table.Cell>
+                <Table.Cell>{this.props.selectedFlight.id}</Table.Cell>
                 <Table.Cell>{this.props.traveler_info.first_name} {this.props.traveler_info.middle_name} {this.props.traveler_info.last_name} </Table.Cell>
               </Table.Row>
             </Table.Body>
